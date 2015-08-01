@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   def index
     already_paid = User.where(:id => current_user).first
     if already_paid.allow_access != false
-      redirect_to pick_path(current_user)
+      redirect_to edit_pick_path(current_user)
       flash[:notice] = "You have already purchased your picks."
     else
       @payment = Payment.new
@@ -27,8 +27,11 @@ class PaymentsController < ApplicationController
       :currency => 'usd'
     )
 
+    @user = current_user
+    @user.allow_access = true
+    @user.save
 
-    redirect_to pick_path(current_user)
+    redirect_to edit_pick_path(current_user)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

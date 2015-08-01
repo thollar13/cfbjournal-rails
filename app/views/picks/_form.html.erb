@@ -5,6 +5,11 @@
       <div class="row">
         <div class="col-sm-16">
           <h2 style="margin-top: 20px;">Select your picks!</h2>
+          <% if current_user.allow_access == false %>
+            Payment is not on file. Please visit <a href="/payments">payments</a> to join jackpot pool.
+          <% else %>
+            Your payment is on file. You are entered to win!
+          <% end %>
           <hr/>
           <% if @pick.errors.any? %>
             <div id="error_explanation">
@@ -27,15 +32,15 @@
           <table class="table table-condensed">
             <tr>
               <td>ACC Atlantic</td>
-              <td><%= f.collection_select :acc_atlantic, Team.where(:conference => "ACC", :division => "Atlantic"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :acc_atlantic, Team.where(:conference => "ACC", :division => "Atlantic").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>ACC Coastal</td>
-              <td><%= f.collection_select :acc_coastal, Team.where(:conference => "ACC", :division => "Coastal"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :acc_coastal, Team.where(:conference => "ACC", :division => "Coastal").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>ACC Champion</td>
-              <td><%= f.collection_select :acc_champ, Team.where(:conference => "ACC"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :acc_champ, Team.where(:conference => "ACC").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
            </table>
         </div>
@@ -43,15 +48,15 @@
           <table class="table table-condensed">
             <tr>
               <td>BIG10 East</td>
-              <td><%= f.collection_select :big_ten_east, Team.where(:conference => "BIG10", :division => "East"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :big_ten_east, Team.where(:conference => "BIG10", :division => "East").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>BIG10 West</td>
-              <td><%= f.collection_select :big_ten_west, Team.where(:conference => "BIG10", :division => "West"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :big_ten_west, Team.where(:conference => "BIG10", :division => "West").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>BIG10 Champion</td>
-              <td><%= f.collection_select :big_ten_champ, Team.where(:conference => "BIG10"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :big_ten_champ, Team.where(:conference => "BIG10").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
            </table>
         </div>
@@ -59,15 +64,15 @@
           <table class="table table-condensed">
             <tr>
               <td>PAC12 North</td>
-              <td><%= f.collection_select :pac_twelve_north, Team.where(:conference => "PAC12", :division => "North"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :pac_twelve_north, Team.where(:conference => "PAC12", :division => "North").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>PAC12 South</td>
-              <td><%= f.collection_select :pac_twelve_south, Team.where(:conference => "PAC12", :division => "South"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :pac_twelve_south, Team.where(:conference => "PAC12", :division => "South").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
             <tr>
               <td>PAC12 Champion</td>
-              <td><%= f.collection_select :pac_twelve_champ, Team.where(:conference => "PAC12"), :id, :name, include_blank: true %></td>
+              <td><%= f.collection_select :pac_twelve_champ, Team.where(:conference => "PAC12").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
             </tr>
           </table>
         </div>
@@ -77,15 +82,15 @@
             <table class="table table-condensed">
               <tr>
                 <td>SEC East</td>
-                <td><%= f.collection_select :sec_east, Team.where(:conference => "SEC", :division => "East"), :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :sec_east, Team.where(:conference => "SEC", :division => "East").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
               <tr>
                 <td>SEC West</td>
-                <td><%= f.collection_select :sec_west, Team.where(:conference => "SEC", :division => "West"), :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :sec_west, Team.where(:conference => "SEC", :division => "West").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
               <tr>
                 <td>SEC Champion</td>
-                <td><%= f.collection_select :sec_champ, Team.where(:conference => "SEC"), :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :sec_champ, Team.where(:conference => "SEC").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
             </table>
           </div>
@@ -93,15 +98,15 @@
             <table class="table table-condensed">
               <tr>
                 <td>BIG12 Champion</td>
-                <td><%= f.collection_select :big_twelve_champ, Team.where(:conference => "BIG12"), :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :big_twelve_champ, Team.where(:conference => "BIG12").order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
               <tr>
                 <td>National Runner-Up</td>
-                <td><%= f.collection_select :nation_runner_up, Team.all, :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :nation_runner_up, Team.all.order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
               <tr>
                 <td>National Champion</td>
-                <td><%= f.collection_select :national_champ, Team.all, :id, :name, include_blank: true %></td>
+                <td><%= f.collection_select :national_champ, Team.all.order("name ASC"), :id, :name, include_blank: "Not Selected" %></td>
               </tr>
             </table>
           </div>

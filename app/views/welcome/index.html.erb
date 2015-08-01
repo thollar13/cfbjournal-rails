@@ -1,11 +1,14 @@
 <div class="welcome-animation">
 	<div class="row">
 		<div class="col-sm-12 col-sm-offset-2">
-			<h1>Welcome to CFB Journal</h1>
-			<p style="font-size: 0.4em">In a point system that calculates your preseason intuition, select the winners of each of the power 5 conferences, along with the final AP Top 5, National Runner-up, and National Champion. Do this and you could win a percentage of the entire jackpot. It's $5 to play and the winner will win a percentage of the overall money pot that's based on the amount of users who play.</p>
-			<p style="font-size: 0.4em">Picks will be locked on August 26th, 2015.</p>
+			<h1 class="blue-txt">Welcome to CFB Journal</h1>
+			<!-- <h4>In a point system that calculates your preseason intuition, select the winners of each of the power 5 conferences, along with the final AP Top 5, National Runner-up, and National Champion. Do this and you could win a percentage of the entire jackpot. It's $5 to play and the winner will win a percentage of the overall money pot that's based on the amount of users who play.</h4> -->
+			<h4>In a point system that calculates your preseason intuition, select the National Champion and the National Champion Runner-up for a chance to win big! The winner will be required to pick the National Champion and National Champion Runner-Up. Then, it comes down to who accrues the most points through the conferences divisional and conference champion pickems. One entry per user. Flat rate $5 to enter jackpot pool.</h4>
+			<hr>
+			<h4 class="blue-txt">Picks will be locked on August 26th, 2015.</h4>
+			<hr>
 			<% if Pick.where(:user_id => current_user).first %>
-				You have already made your picks. Feel view to view and edit them until the lock out date.
+				<p>You have already made your picks. Feel view to view and edit them until the lock out date.</p>
 				<a href="/picks/<%= current_user.id %>/edit">View Your Picks</a>
 			<% else %>
 				<a href="/picks/new">Make Your Picks</a>		

@@ -5,6 +5,7 @@
   <%= tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_public_key %>
   <%= stylesheet_link_tag '/assets/dist/css/style.css' %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700' rel='stylesheet' type='text/css'>
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :picks
   resources :payments
 
-  get 'welcome/index'
+  # get 'welcome/index'
   root 'welcome#index'
 
   # post 'picks/set_acc_champ' => 'picks#acc_champ'

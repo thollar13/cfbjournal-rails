@@ -19,7 +19,7 @@ class PicksController < ApplicationController
   def new
     has_picked = Pick.where(:user_id => current_user).first
     if has_picked
-      redirect_to pick_path(current_user)
+      redirect_to edit_pick_path(current_user)
     else
       @pick = Pick.new
     end
