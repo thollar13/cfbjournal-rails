@@ -1,3 +1,15 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<%= link_to "Signout", destroy_user_session_path, method: :delete %>
+<div class="welcome-animation">
+	<div class="row">
+		<div class="col-sm-12 col-sm-offset-2">
+			<h1>Welcome to CFB Journal</h1>
+			<p style="font-size: 0.4em">In a point system that calculates your preseason intuition, select the winners of each of the power 5 conferences, along with the final AP Top 5, National Runner-up, and National Champion. Do this and you could win a percentage of the entire jackpot. It's $5 to play and the winner will win a percentage of the overall money pot that's based on the amount of users who play.</p>
+			<p style="font-size: 0.4em">Picks will be locked on August 26th, 2015.</p>
+			<% if Pick.where(:user_id => current_user).first %>
+				You have already made your picks. Feel view to view and edit them until the lock out date.
+				<a href="/picks/<%= current_user.id %>/edit">View Your Picks</a>
+			<% else %>
+				<a href="/picks/new">Make Your Picks</a>		
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 8ce205c7e2ca8a52d598ca4523d1dda828e48f1b
+  specs:
+    stripe (1.23.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -61,6 +69,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -71,6 +81,8 @@ GEM
     hashie (3.4.2)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (2.3.1)
@@ -95,6 +107,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.0.0)
+    netrc (0.10.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
@@ -115,7 +128,7 @@ GEM
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    omniauth-twitter (1.2.0)
+    omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
@@ -150,6 +163,10 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -161,6 +178,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     simple_oauth (0.3.1)
+    slick_rails (1.5.8)
+      railties (>= 3.1)
     spring (1.3.6)
     sprockets (3.2.0)
       rack (~> 1.0)
@@ -190,6 +209,9 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -213,8 +235,10 @@ DEPENDENCIES
   rails (= 4.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  slick_rails
   spring
   sqlite3
+  stripe!
   turbolinks
   twitter
   uglifier (>= 1.3.0)

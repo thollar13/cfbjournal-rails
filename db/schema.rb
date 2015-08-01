@@ -11,7 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723014816) do
+ActiveRecord::Schema.define(version: 20150731222649) do
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
+
+  create_table "picks", force: :cascade do |t|
+    t.string   "acc_champ"
+    t.string   "big_ten_champ"
+    t.string   "big_twelve_champ"
+    t.string   "national_champ"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "acc_coastal"
+    t.string   "acc_atlantic"
+    t.string   "big_ten_west"
+    t.string   "big_ten_east"
+    t.string   "pac_twelve_north"
+    t.string   "pac_twelve_south"
+    t.string   "sec_east"
+    t.string   "sec_west"
+    t.string   "sec_champ"
+    t.string   "pac_twelve_champ"
+    t.string   "nation_runner_up"
+    t.integer  "championship_total_points"
+  end
+
+  add_index "picks", ["user_id"], name: "index_picks_on_user_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "conference"
+    t.string   "division"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -35,6 +76,8 @@ ActiveRecord::Schema.define(version: 20150723014816) do
     t.boolean  "active"
     t.boolean  "allow_access",           default: false
     t.string   "phone_number"
+    t.string   "name"
+    t.string   "customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,5 +1,5 @@
 <h2>Log in</h2>
-
+<!--
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -22,5 +22,16 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+-->
+<div class="welcome-animation">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-sm-offset-2">
+        <h1>Welcome to CFB Journal</h1>
+        <p style="font-size: 0.4em">In a point system that calculates your preseason intuition, select the winners of each of the power 5 conferences, along with the final AP Top 5, National Runner-up, and National Champion. Do this and you could win a percentage of the entire jackpot. It's $5 to play and the winner will win a percentage of the overall money pot that's based on the amount of users who play.</p>
+        <p style="font-size: 0.4em">Picks will be locked on August 26th, 2015.</p>
+        <a href="/users/auth/facebook">Sign in via Facebook</a>    
+      </div>
+    </div>
+  </div>
+</div>

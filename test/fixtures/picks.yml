@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acc_champ: MyString
+  big_ten_champ: MyString
+  big_twelve_champ: MyString
+  national_champ: MyString
+  user_id: 
+
+two:
+  acc_champ: MyString
+  big_ten_champ: MyString
+  big_twelve_champ: MyString
+  national_champ: MyString
+  user_id: 
