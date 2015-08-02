@@ -31,7 +31,12 @@ class PaymentsController < ApplicationController
     @user.allow_access = true
     @user.save
 
-    redirect_to edit_pick_path(current_user)
+    made_pick = Pick.where(:user_id => current_user).first
+    if made_pick != nil
+      redirect_to edit_pick_path(current_user)
+    else
+      redirect_to new_pick_path
+    end
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
