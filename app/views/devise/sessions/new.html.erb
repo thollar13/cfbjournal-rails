@@ -33,7 +33,9 @@
               <hr>
               <h4 class="blue-txt">Picks will be locked on August 26th, 2015.</h4>
               <hr>
-        <a href="/users/auth/facebook">Sign in via Facebook</a>    
+              <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+        </div>
       </div>
     </div>
   </div>
